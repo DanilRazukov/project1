@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    // Куда производится сборка, в случае использования webpack эта переменная не важна
+    "outDir": "./dist/",
+    // Подсвечиваем все места, где явно не указан тип
+    "noImplicitAny": true,
+    "module": "es6",
+    // Версия стандарта ES в которую код будет компилироваться
+    "target": "es5",
+    // Позволяет компилятору обрабатывать не только TS, но и JS файлы
+    "allowJs": true,
+    "moduleResolution": "node",
+    // allowSyntheticDefaultImports Если какая либо библиотека не имеет default import, то лоадеры (ts-loader, babel-loader)
+    // автоматически создают такой импорт. В таком случае мы можем отказаться от * as
+    "allowSyntheticDefaultImports": true,
+    // esModuleInterop позволяет работать с пакетами, которые используют common js как с обычными пакетами с помощью import
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "lib": ["esnext", "dom"]
+  },
+  "include": ["src/**/*", "types/shims-vue.d.ts"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
