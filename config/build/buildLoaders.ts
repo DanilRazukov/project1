@@ -25,10 +25,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
       options.isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
       'css-loader',
       {
-        loader: 'sass-loader',
-        options: {
-          additionalData: `@use "@/style/reset.scss";`
-        }
+        loader: 'sass-loader'
       }
     ]
   }

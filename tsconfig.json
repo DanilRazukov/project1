@@ -4,9 +4,9 @@
     "outDir": "./dist/",
     // Подсвечиваем все места, где явно не указан тип
     "noImplicitAny": true,
-    "module": "es6",
+    "module": "esnext",
     // Версия стандарта ES в которую код будет компилироваться
-    "target": "es5",
+    "target": "esnext",
     // Позволяет компилятору обрабатывать не только TS, но и JS файлы
     "allowJs": true,
     "moduleResolution": "node",
