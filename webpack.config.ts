@@ -14,6 +14,7 @@ const paths: BuildPaths = {
   build: path.resolve(__dirname, 'build'),
   html: path.resolve(__dirname, 'public', 'index.html'),
   src: path.resolve(__dirname, 'src'),
+  pages: path.resolve(__dirname, 'src', 'pages'),
 }
 
 const config: webpack.Configuration = buildWebpackConfig({

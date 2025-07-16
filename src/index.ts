@@ -1,28 +1,14 @@
 import { createApp } from 'vue'
-import App from "./App.vue";
+import App from "./app/App.vue";
 
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
+import { routeConfig } from "shared/config";
 
-import '@/styles/index.scss'
-
-const AsyncMainPage = () => import("./pages/MainPage/MainPage.vue")
-const AsyncAboutPage = () => import("./pages/AboutPage/AboutPage.vue")
-
-const routes: RouteRecordRaw[] = [
-  {
-    path: '/',
-    component: AsyncMainPage,
-    name: 'Main'
-  },
-  { path: '/about',
-    component: AsyncAboutPage,
-    name: 'About'
-  },
-]
+import "app/styles/index.scss"
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes: routeConfig
 })
 
 const app = createApp(App)

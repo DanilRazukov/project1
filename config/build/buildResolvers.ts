@@ -6,7 +6,14 @@ export function buildResolvers(options: BuildOptions): ResolveOptions {
     extensions: [ '.ts', '.js', '.vue' ],
     alias: {
       'vue': '@vue/runtime-dom',
-      '@': options.paths.src
-    }
+      src: options.paths.src,
+      pages: options.paths.pages
+    },
+    modules: [
+      options.paths.src,
+      'node_modules'
+    ],
+    preferAbsolute: true,
+    mainFiles: ['index']
   }
 }
