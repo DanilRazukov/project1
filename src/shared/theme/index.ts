@@ -1,7 +1,7 @@
-import { useTheme, Theme, LOCAL_STORAGE_THEME_KEY } from "./lib/useTheme"
+import { useTheme, THEME, LOCAL_STORAGE_THEME_KEY } from "./lib/useTheme"
 
 export {
   useTheme,
-  Theme,
+  THEME,
   LOCAL_STORAGE_THEME_KEY
 }

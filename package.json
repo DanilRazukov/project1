@@ -18,6 +18,7 @@
     "@vue/compiler-sfc": "^3.5.17",
     "css-loader": "^7.1.2",
     "dotenv": "^17.2.0",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.6.3",
     "mini-css-extract-plugin": "^2.9.2",
     "sass": "^1.89.2",
@@ -27,6 +28,7 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
     "vue-loader": "^17.3.1",
+    "vue-svg-loader": "0.17.0-beta.2",
     "webpack": "^5.100.2",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.2"

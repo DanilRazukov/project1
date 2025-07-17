@@ -1,6 +1,6 @@
 import {onMounted, Ref, ref} from "vue";
 
-export enum Theme {
+export enum THEME {
   LIGHT = "light",
   DARK = "dark",
 }
@@ -8,14 +8,15 @@ export enum Theme {
 export const LOCAL_STORAGE_THEME_KEY = "theme";
 
 interface IUseTheme {
-  theme: Ref<Theme>;
-  setTheme: (theme: Theme) => void;
+  theme: Ref<THEME>;
+  setTheme: (theme: THEME) => void;
+  switchTheme: () => void;
 }
 
 export const useTheme = (): IUseTheme => {
-  const theme = ref<Theme>(Theme.LIGHT);
+  const theme = ref<THEME>(THEME.LIGHT);
 
-  function setTheme(selectedTheme: Theme): void {
+  function setTheme(selectedTheme: THEME): void {
     const app = document.getElementById("app")
 
     if (!app) return;
@@ -29,8 +30,18 @@ export const useTheme = (): IUseTheme => {
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, selectedTheme)
   }
 
-  function isTheme(value: unknown): value is Theme {
-    return typeof value === 'string' && Object.values(Theme).includes(value as Theme);
+  function switchTheme(): void {
+    switch (theme.value) {
+      case THEME.LIGHT:
+        setTheme(THEME.DARK);
+        break;
+      case THEME.DARK:
+        setTheme(THEME.LIGHT);
+    }
+  }
+
+  function isTheme(value: unknown): value is THEME {
+    return typeof value === 'string' && Object.values(THEME).includes(value as THEME);
   }
 
   onMounted(() => {
@@ -42,6 +53,7 @@ export const useTheme = (): IUseTheme => {
 
   return {
     theme,
-    setTheme
+    setTheme,
+    switchTheme
   }
 }
