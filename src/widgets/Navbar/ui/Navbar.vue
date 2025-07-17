@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { RoutePath, APP_ROUTES } from "shared/config";
 import {AppLink} from "shared/ui";
-import {ThemeSwitcher} from "widgets/ThemeSwitcher";
 
 const routeNames: Record<APP_ROUTES, string> = {
   [APP_ROUTES.MAIN]: 'Main',
@@ -15,7 +14,6 @@ const routeNames: Record<APP_ROUTES, string> = {
     <div class="navbar__logo">
       LOGO
     </div>
-    <ThemeSwitcher/>
     <div class="navbar__links">
       <AppLink
         v-for="(link, key) in RoutePath"

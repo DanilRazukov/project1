@@ -24,7 +24,7 @@ const getCurrentIcon = computed(() => {
     :theme="THEME_BUTTON.PRIMARY"
   >
     <template #content>
-      <component :is="getCurrentIcon" width="60px" height="60px"/>
+      <component :is="getCurrentIcon" width="40px" height="40px"/>
     </template>
   </Button>
 </template>
