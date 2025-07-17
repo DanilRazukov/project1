@@ -17,7 +17,7 @@ function changeIsCollapsed() {
     ]"
   >
     <button @click="changeIsCollapsed">
-      Toggle
+      {{ $t('toggle') }}
     </button>
 
     <div class="sidebar__theme">

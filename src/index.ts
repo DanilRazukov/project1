@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from "./app/App.vue";
 
 import { createRouter, createWebHistory } from "vue-router";
-import { routeConfig } from "shared/config";
+import {routeConfig, i18n } from "shared/config";
 
 import "app/styles/index.scss"
 
@@ -13,4 +13,5 @@ const router = createRouter({
 
 const app = createApp(App)
 app.use(router)
+app.use(i18n)
 app.mount("#app")
