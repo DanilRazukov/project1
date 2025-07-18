@@ -3,10 +3,22 @@ import webpack from "webpack";
 import {BuildOptions} from "./types/config";
 import {VueLoaderPlugin} from "vue-loader";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
   return [
     new HtmlWebpackPlugin({ template: paths.html }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: paths.public,
+          to: paths.build,
+          globOptions: {
+            ignore: ["**/index.html"],
+          }
+        },
+      ]
+    }),
     new webpack.ProgressPlugin(),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
