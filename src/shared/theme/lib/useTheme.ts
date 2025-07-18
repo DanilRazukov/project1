@@ -41,7 +41,7 @@ export const useTheme = (): IUseTheme => {
   }
 
   function isTheme(value: unknown): value is THEME {
-    return typeof value === 'string' && Object.values(THEME).includes(value as THEME);
+    return typeof value === "string" && Object.values(THEME).includes(value as THEME);
   }
 
   onMounted(() => {

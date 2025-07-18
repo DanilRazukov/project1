@@ -3,8 +3,8 @@ import { RoutePath, APP_ROUTES } from "shared/config";
 import { AppLink } from "shared/ui";
 
 const routeNames: Record<APP_ROUTES, string> = {
-  [APP_ROUTES.MAIN]: 'navbar.main',
-  [APP_ROUTES.ABOUT]: 'navbar.about'
+  [APP_ROUTES.MAIN]: "navbar.main",
+  [APP_ROUTES.ABOUT]: "navbar.about"
 }
 
 function isAppRoute(value: string): value is APP_ROUTES {

@@ -1,6 +1,6 @@
 export enum SUPPORT_LOCALES {
-  EN = 'en',
-  RU = 'ru',
+  EN = "en",
+  RU = "ru",
 }
 
 export type Locale = `${SUPPORT_LOCALES}`

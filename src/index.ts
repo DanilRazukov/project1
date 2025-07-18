@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import { createApp } from "vue"
 import { createRouter, createWebHistory } from "vue-router";
 
 import { routeConfig, i18n, getBrowserLocale, changeLocale } from "shared/config";

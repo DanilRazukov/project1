@@ -1,7 +1,7 @@
-import type { Ref } from 'vue';
-import { createI18n } from 'vue-i18n';
+import type { Ref } from "vue";
+import { createI18n } from "vue-i18n";
 
-import { DEFAULT_LOCALE, FALLBACK_LOCALE, Locale, SUPPORT_LOCALES } from './types';
+import { DEFAULT_LOCALE, FALLBACK_LOCALE, Locale, SUPPORT_LOCALES } from "./types";
 
 const options = {
   legacy: false,
@@ -18,7 +18,7 @@ const loadedLanguages: Set<Locale> = new Set();
 
 function setI18nLanguage(locale: Locale): void {
   (i18n.global.locale as unknown as Ref<Locale>).value = locale;
-  document.querySelector('html')!.setAttribute('lang', locale);
+  document.querySelector("html")!.setAttribute("lang", locale);
 }
 
 async function loadLocaleMessages(locale: Locale): Promise<void> {
@@ -56,6 +56,6 @@ function isLocale(value: string): value is Locale {
 }
 
 export function getBrowserLocale(): Locale {
-  const lang = navigator.language.split('-')[0];
+  const lang = navigator.language.split("-")[0];
   return isLocale(lang) ? lang : SUPPORT_LOCALES.EN;
 }

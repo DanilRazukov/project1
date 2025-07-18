@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
-import MoonIcon from 'shared/assets/icons/moon.svg'
+import MoonIcon from "shared/assets/icons/moon.svg"
 import SunIcon from "shared/assets/icons/sun.svg"
 import { useTheme, THEME } from "shared/theme";
 import { Button, THEME_BUTTON } from "shared/ui";
