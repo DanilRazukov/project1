@@ -18,6 +18,7 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
       __VUE_PROD_DEVTOOLS__: JSON.stringify(false),
       __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: JSON.stringify(false),
       __IS_DEV__: isDev
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ]
 }

@@ -23,10 +23,13 @@ defineSlots()
 <style scoped lang="scss">
 .button {
   cursor: pointer;
-  margin: 0;
   padding: 0;
   border: none;
   outline: none;
   background: none;
+
+  &.clear {
+    padding: 8px;
+  }
 }
 </style>

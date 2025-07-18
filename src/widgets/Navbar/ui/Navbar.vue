@@ -7,6 +7,10 @@ const routeNames: Record<APP_ROUTES, string> = {
   [APP_ROUTES.ABOUT]: 'navbar.about'
 }
 
+function isAppRoute(value: string): value is APP_ROUTES {
+  return Object.values(APP_ROUTES).includes(value as APP_ROUTES);
+}
+
 </script>
 
 <template>
@@ -20,7 +24,7 @@ const routeNames: Record<APP_ROUTES, string> = {
         :to="link"
         >
         <template #title>
-          {{ $t(routeNames[key]) }}
+          {{ $t(isAppRoute(key) ? routeNames[key] : '') }}
         </template>
       </AppLink>
     </div>
