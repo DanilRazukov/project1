@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import {computed} from "vue";
-import {useTheme, THEME} from "shared/theme";
-import SunIcon from "shared/assets/icons/sun.svg"
+import { computed } from "vue";
+
 import MoonIcon from 'shared/assets/icons/moon.svg'
-import {Button, THEME_BUTTON} from "shared/ui";
+import SunIcon from "shared/assets/icons/sun.svg"
+import { useTheme, THEME } from "shared/theme";
+import { Button, THEME_BUTTON } from "shared/ui";
 
 const {
   theme,
@@ -20,11 +21,15 @@ const getCurrentIcon = computed(() => {
 
 <template>
   <Button
-    @click="switchTheme"
     :theme="THEME_BUTTON.PRIMARY"
+    @click="switchTheme"
   >
     <template #content>
-      <component :is="getCurrentIcon" width="40px" height="40px"/>
+      <component
+        :is="getCurrentIcon"
+        width="40px"
+        height="40px"
+      />
     </template>
   </Button>
 </template>

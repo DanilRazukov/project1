@@ -5,13 +5,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "lint": "eslint",
+    "fix": "eslint --fix"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@eslint/js": "^9.31.0",
     "@types/node": "^24.0.14",
     "@types/webpack": "^5.28.5",
     "@types/webpack-dev-server": "^4.7.1",
@@ -19,7 +22,12 @@
     "copy-webpack-plugin": "^13.0.0",
     "css-loader": "^7.1.2",
     "dotenv": "^17.2.0",
+    "eslint": "^9.31.0",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-vue": "^10.3.0",
     "file-loader": "^6.2.0",
+    "globals": "^16.3.0",
     "html-webpack-plugin": "^5.6.3",
     "mini-css-extract-plugin": "^2.9.2",
     "sass": "^1.89.2",
@@ -28,6 +36,7 @@
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
+    "typescript-eslint": "^8.37.0",
     "vue-loader": "^17.3.1",
     "vue-svg-loader": "0.17.0-beta.2",
     "webpack": "^5.100.2",

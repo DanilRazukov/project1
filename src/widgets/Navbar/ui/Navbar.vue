@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RoutePath, APP_ROUTES } from "shared/config";
-import {AppLink} from "shared/ui";
+import { AppLink } from "shared/ui";
 
 const routeNames: Record<APP_ROUTES, string> = {
   [APP_ROUTES.MAIN]: 'navbar.main',
@@ -21,8 +21,9 @@ function isAppRoute(value: string): value is APP_ROUTES {
     <div class="navbar__links">
       <AppLink
         v-for="(link, key) in RoutePath"
+        :key="key"
         :to="link"
-        >
+      >
         <template #title>
           {{ $t(isAppRoute(key) ? routeNames[key] : '') }}
         </template>

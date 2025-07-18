@@ -1,8 +1,10 @@
-import webpack from 'webpack';
-import {buildWebpackConfig} from "./config/build/buildWebpackConfig";
-import {BUILD_MODE, BuildPaths} from "./config/build/types/config";
 import path from "path";
+
 import dotenv from "dotenv";
+import webpack from 'webpack';
+
+import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
+import { BUILD_MODE, BuildPaths } from "./config/build/types/config";
 
 dotenv.config();
 

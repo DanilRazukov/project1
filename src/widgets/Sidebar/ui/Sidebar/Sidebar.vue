@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import {ThemeSwitcher} from "widgets/ThemeSwitcher";
-import {LangSwitcher} from "widgets/LangSwitcher";
+
+import { LangSwitcher } from "widgets/LangSwitcher";
+import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 
 const isCollapsed = ref<boolean>(false)
 
@@ -22,7 +23,7 @@ function changeIsCollapsed() {
     </button>
 
     <div class="sidebar__theme">
-      <ThemeSwitcher/>
+      <ThemeSwitcher />
       <LangSwitcher />
     </div>
   </div>

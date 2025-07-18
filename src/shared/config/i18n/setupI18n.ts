@@ -1,6 +1,7 @@
-import { createI18n } from 'vue-i18n';
 import type { Ref } from 'vue';
-import {DEFAULT_LOCALE, FALLBACK_LOCALE, Locale, SUPPORT_LOCALES} from './types';
+import { createI18n } from 'vue-i18n';
+
+import { DEFAULT_LOCALE, FALLBACK_LOCALE, Locale, SUPPORT_LOCALES } from './types';
 
 const options = {
   legacy: false,

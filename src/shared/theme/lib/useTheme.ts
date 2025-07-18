@@ -1,4 +1,4 @@
-import {onMounted, Ref, ref} from "vue";
+import { onMounted, Ref, ref } from "vue";
 
 export enum THEME {
   LIGHT = "light",

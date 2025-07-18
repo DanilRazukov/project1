@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import {Button, THEME_BUTTON} from "shared/ui";
-import {SUPPORT_LOCALES, changeLocale} from "shared/config";
 import { useI18n } from "vue-i18n";
+
+import { SUPPORT_LOCALES, changeLocale } from "shared/config";
+import { Button, THEME_BUTTON } from "shared/ui";
 
 const { locale } = useI18n()
 
