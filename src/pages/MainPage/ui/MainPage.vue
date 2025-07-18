@@ -1,20 +1,15 @@
 <script setup lang="ts">
-import { useI18n } from "vue-i18n";
+import {changeLocale, SUPPORT_LOCALES} from "shared/config";
 
-const { locale } = useI18n();
-
-function setLocale(val: string): void {
-  locale.value = val
-}
 </script>
 
 <template>
   <div>
     Main Page
-    <button @click="setLocale('en')">
+    <button @click="changeLocale(SUPPORT_LOCALES.EN)">
       setLocale en
     </button>
-    <button @click="setLocale('ru')">
+    <button @click="changeLocale(SUPPORT_LOCALES.RU)">
       setLocale ru
     </button>
   </div>

@@ -1,7 +1,6 @@
 import { createI18n } from 'vue-i18n';
-import { DEFAULT_LOCALE, FALLBACK_LOCALE } from './types';
-import ru from './locales/ru.json'
-import en from './locales/en.json'
+import type { Ref } from 'vue';
+import {DEFAULT_LOCALE, FALLBACK_LOCALE, Locale, SUPPORT_LOCALES} from './types';
 
 const options = {
   legacy: false,
@@ -9,38 +8,53 @@ const options = {
   fallbackLocale: FALLBACK_LOCALE,
   messages: {},
   globalInjection: true,
-  devtools: true,
+  devtools: __IS_DEV__,
 }
 
-// TODO Разобраться с lazy loading для локали
-export const i18n = createI18n({
-  ...options,
-  messages: {
-    ru,
-    en
-  }
-})
+export const i18n = createI18n(options)
 
-// export function setupI18n(locale = DEFAULT_LOCALE) {
-//   const i18n = createI18n({
-//     ...options,
-//     locale
-//   })
-//   setI18nLanguage(i18n, locale)
-//   return i18n
-// }
-//
-// export function setI18nLanguage(i18n: I18n, locale: string) {
-//   // @ts-ignore
-//   i18n.global.locale.value = locale
-//
-//   document.querySelector('html').setAttribute('lang', locale)
-// }
-//
-// export async function loadLocaleMessages(i18n: I18n, locale: string) {
-//   const messages = await import(`./locales/${locale}.json`)
-//
-//   i18n.global.setLocaleMessage(locale, messages.default)
-//
-//   return nextTick()
-// }
+const loadedLanguages: Set<Locale> = new Set();
+
+function setI18nLanguage(locale: Locale): void {
+  (i18n.global.locale as unknown as Ref<Locale>).value = locale;
+  document.querySelector('html')!.setAttribute('lang', locale);
+}
+
+async function loadLocaleMessages(locale: Locale): Promise<void> {
+  if (loadedLanguages.has(locale)) {
+    setI18nLanguage(locale);
+    return;
+  }
+
+  try {
+    const response = await fetch(`/locales/${locale}.json`);
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+    const messages = await response.json();
+
+    i18n.global.setLocaleMessage(locale, messages);
+    loadedLanguages.add(locale);
+    setI18nLanguage(locale);
+  } catch (error) {
+    console.error(`Ошибка загрузки перевода для ${locale}:`, error);
+  }
+}
+
+export async function changeLocale(locale: Locale): Promise<void> {
+  if (!(Object.values(SUPPORT_LOCALES)).includes(locale as SUPPORT_LOCALES)) {
+    console.warn(`Локаль "${locale}" не поддерживается`);
+    return;
+  }
+
+  await loadLocaleMessages(locale);
+}
+
+function isLocale(value: string): value is Locale {
+  return (Object.values(SUPPORT_LOCALES) as string[]).includes(value);
+}
+
+export function getBrowserLocale(): Locale {
+  const lang = navigator.language.split('-')[0];
+  return isLocale(lang) ? lang : SUPPORT_LOCALES.EN;
+}

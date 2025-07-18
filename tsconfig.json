@@ -25,7 +25,8 @@
   "include": [
     "src/**/*",
     "src/app/types/shims-vue.d.ts",
-    "src/app/types/vue-i18n.d.ts"
+    "src/app/types/vue-i18n.d.ts",
+    "src/app/types/global.d.ts"
   ],
   "ts-node": {
     "compilerOptions": {

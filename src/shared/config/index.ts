@@ -1,5 +1,6 @@
 import { routeConfig, RoutePath, APP_ROUTES} from "./routeConfig/routeConfig"
-import {i18n, SUPPORT_LOCALES, DEFAULT_LOCALE, FALLBACK_LOCALE } from "./i18n/index"
+import { i18n, getBrowserLocale, changeLocale } from "./i18n/setupI18n"
+import { SUPPORT_LOCALES, DEFAULT_LOCALE, FALLBACK_LOCALE } from './i18n/types'
 
 export {
   routeConfig,
@@ -8,5 +9,7 @@ export {
   SUPPORT_LOCALES,
   DEFAULT_LOCALE,
   FALLBACK_LOCALE,
-  i18n
+  i18n,
+  changeLocale,
+  getBrowserLocale
 }

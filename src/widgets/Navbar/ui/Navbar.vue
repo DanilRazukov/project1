@@ -3,8 +3,8 @@ import { RoutePath, APP_ROUTES } from "shared/config";
 import {AppLink} from "shared/ui";
 
 const routeNames: Record<APP_ROUTES, string> = {
-  [APP_ROUTES.MAIN]: 'Main',
-  [APP_ROUTES.ABOUT]: 'About'
+  [APP_ROUTES.MAIN]: 'navbar.main',
+  [APP_ROUTES.ABOUT]: 'navbar.about'
 }
 
 </script>
@@ -20,7 +20,7 @@ const routeNames: Record<APP_ROUTES, string> = {
         :to="link"
         >
         <template #title>
-          {{ routeNames[key] }}
+          {{ $t(routeNames[key]) }}
         </template>
       </AppLink>
     </div>
