@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { defineSlots } from "vue";
-
 import { THEME_BUTTON } from "shared/ui";
 
 interface IProps {

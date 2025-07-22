@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineProps, defineSlots } from "vue";
 interface IProps {
   to: string;
 }

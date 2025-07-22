@@ -5,7 +5,9 @@ import typescriptEslint from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import'
 
 export default typescriptEslint.config(
-  { ignores: [ '**/*.d.ts', '**/coverage', '**/build', '**/public'] },
+  {
+    ignores: [ '**/*.d.ts', '**/coverage', '**/build', '**/public']
+  },
   {
     extends: [
       eslint.configs.recommended,
@@ -19,6 +21,7 @@ export default typescriptEslint.config(
       globals: {
         ...globals.browser,
         ...globals.node,
+        ...globals.jest,
         __dirname: 'readonly',
         path: 'readonly',
         process: 'readonly',
