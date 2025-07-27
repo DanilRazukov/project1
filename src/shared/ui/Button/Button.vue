@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { THEME_BUTTON } from "shared/ui";
+import { THEME_BUTTON } from "shared/ui/Button/ButtonTypes"
 
 interface IProps {
   theme?: THEME_BUTTON;
@@ -14,12 +14,12 @@ defineSlots()
 </script>
 
 <template>
-  <Button
+  <button
     class="button"
     :class="theme"
   >
     <slot name="content" />
-  </Button>
+  </button>
 </template>
 
 <style scoped lang="scss">

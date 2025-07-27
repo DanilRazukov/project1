@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+import { PageLoader } from "widgets/PageLoader";
 </script>
 
 <template>
@@ -8,7 +8,7 @@
       <RouterView />
     </template>
     <template #fallback>
-      Loading
+      <PageLoader />
     </template>
   </Suspense>
 </template>

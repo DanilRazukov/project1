@@ -54,9 +54,9 @@ const config: Config = {
   ],
 
   // Options that will be passed to the testEnvironment
-  testEnvironmentOptions: {
-
-  },
+  // testEnvironmentOptions: {
+  //
+  // },
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,

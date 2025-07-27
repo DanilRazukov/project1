@@ -2,13 +2,20 @@
 import { RoutePath, APP_ROUTES } from "shared/config";
 import { AppLink } from "shared/ui";
 
-const routeNames: Record<APP_ROUTES, string> = {
+type navbarRoutesType = Exclude<APP_ROUTES, APP_ROUTES.NOT_FOUND>
+
+const routeNames: Record<navbarRoutesType, string> = {
   [APP_ROUTES.MAIN]: "navbar.main",
   [APP_ROUTES.ABOUT]: "navbar.about"
 }
 
-function isAppRoute(value: string): value is APP_ROUTES {
-  return Object.values(APP_ROUTES).includes(value as APP_ROUTES);
+const navbarRoutes: Record<navbarRoutesType, string> = {
+  [APP_ROUTES.MAIN]: RoutePath.main,
+  [APP_ROUTES.ABOUT]: RoutePath.about
+}
+
+function isAppRoute(value: string): value is navbarRoutesType {
+  return Object.values(APP_ROUTES).includes(value as navbarRoutesType);
 }
 
 </script>
@@ -20,7 +27,7 @@ function isAppRoute(value: string): value is APP_ROUTES {
     </div>
     <div class="navbar__links">
       <AppLink
-        v-for="(link, key) in RoutePath"
+        v-for="(link, key) in navbarRoutes"
         :key="key"
         :to="link"
       >
