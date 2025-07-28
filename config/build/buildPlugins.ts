@@ -4,6 +4,7 @@ import {BuildOptions} from "./types/config";
 import {VueLoaderPlugin} from "vue-loader";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
   return [
@@ -31,6 +32,7 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
       __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: JSON.stringify(false),
       __IS_DEV__: isDev
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new BundleAnalyzerPlugin({ openAnalyzer: false })
   ]
 }
